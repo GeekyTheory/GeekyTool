@@ -43,12 +43,7 @@ namespace GeekyTool.Commands
         /// </returns>
         public bool CanExecute(object parameter)
         {
-            if (canExecute == null)
-            {
-                return true;
-            }
-
-            return canExecute();
+            return canExecute == null || canExecute();
         }
 
         public event EventHandler CanExecuteChanged;
@@ -59,18 +54,12 @@ namespace GeekyTool.Commands
         /// <param name="parameter">Data used by the command. If the command does not require data to be passed, this object can be set to null.</param>
         public void Execute(object parameter)
         {
-            if (execute != null)
-            {
-                execute();
-            }
+            execute?.Invoke();
         }
 
         public void RaiseCanExecuteChanged()
         {
-            if (CanExecuteChanged != null)
-            {
-                CanExecuteChanged(null, new EventArgs());
-            }
+            CanExecuteChanged?.Invoke(null, new EventArgs());
         }
     }
 
@@ -106,10 +95,7 @@ namespace GeekyTool.Commands
         /// </returns>
         public bool CanExecute(object parameter)
         {
-            if (canExecute == null)
-                return true;
-
-            return canExecute((T)parameter);
+            return canExecute == null || canExecute((T)parameter);
         }
 
 
@@ -121,8 +107,7 @@ namespace GeekyTool.Commands
         /// <param name="parameter">Data used by the command. If the command does not require data to be passed, this object can be set to null.</param>
         public void Execute(object parameter)
         {
-            if (execute != null)
-                execute((T)parameter);
+            execute?.Invoke((T)parameter);
         }
 
         /// <summary>
@@ -130,8 +115,7 @@ namespace GeekyTool.Commands
         /// </summary>
         public void RaiseCanExecuteChanged()
         {
-            if (CanExecuteChanged != null)
-                CanExecuteChanged(null, new EventArgs());
+            CanExecuteChanged?.Invoke(null, new EventArgs());
         }
     }
 }

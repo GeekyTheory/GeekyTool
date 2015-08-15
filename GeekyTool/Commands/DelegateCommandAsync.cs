@@ -37,13 +37,10 @@ namespace GeekyTool.Commands
 		/// <returns></returns>
 		public bool CanExecute(object parameter)
 		{
-			if (this.canExecute != null)
-				return this.canExecute().Result;
-
-			return true;
+		    return this.canExecute == null || this.canExecute().Result;
 		}
 
-		/// <summary>
+	    /// <summary>
 		/// This method is called from XAML to execute the command.
 		/// </summary>
 		/// <param name="parameter"></param>
@@ -58,8 +55,7 @@ namespace GeekyTool.Commands
 		public void RaiseCanExecuteChanged()
 		{
 			var tmpHandle = CanExecuteChanged;
-			if (tmpHandle != null)
-				tmpHandle(this, new EventArgs());
+		    tmpHandle?.Invoke(this, new EventArgs());
 		}
 
 		/// <summary>
@@ -100,13 +96,10 @@ namespace GeekyTool.Commands
 		/// <returns></returns>
 		public bool CanExecute(object parameter)
 		{
-			if (this.canExecute != null)
-				return this.canExecute((T)parameter).Result;
-
-			return true;
+		    return this.canExecute == null || this.canExecute((T)parameter).Result;
 		}
 
-		/// <summary>
+	    /// <summary>
 		/// This method is called from XAML to execute the command.
 		/// </summary>
 		/// <param name="parameter"></param>
@@ -121,8 +114,7 @@ namespace GeekyTool.Commands
 		public void RaiseCanExecuteChanged()
 		{
 			var tmpHandle = CanExecuteChanged;
-			if (tmpHandle != null)
-				tmpHandle(this, new EventArgs());
+		    tmpHandle?.Invoke(this, new EventArgs());
 		}
 
 		/// <summary>

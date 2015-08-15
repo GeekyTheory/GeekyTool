@@ -14,14 +14,9 @@ namespace GeekyTool.ViewModels
         private double variableSizedGrid_Width;
         private double viewWidth;
 
-        public Frame AppFrame
-        {
-            get { return appFrame; }
-        }
-        public Frame SplitViewFrame
-        {
-            get { return splitViewFrame; }
-        }
+        public Frame AppFrame => appFrame;
+
+        public Frame SplitViewFrame => splitViewFrame;
 
         public bool IsBusy
         {
