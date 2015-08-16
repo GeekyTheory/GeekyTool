@@ -123,6 +123,7 @@
     <Compile Include="Converters\ToUpperConverter.cs" />
     <Compile Include="Extensions\MyEnumerables.cs" />
     <Compile Include="Extensions\WebViewExtension.cs" />
+    <Compile Include="Helpers\TitleBar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\LocalSettingsService\ILocalSettingsService.cs" />
     <Compile Include="Services\LocalSettingsService\LocalSettingsService.cs" />
