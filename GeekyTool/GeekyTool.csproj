@@ -115,11 +115,14 @@
   <ItemGroup>
     <Compile Include="Commands\DelegateCommand.cs" />
     <Compile Include="Commands\DelegateCommandAsync.cs" />
+    <Compile Include="Common\GeekyHelper.cs" />
     <Compile Include="Converters\BooleanNegationConverter.cs" />
     <Compile Include="Converters\BooleanToInverseVisibilityConverter.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\DoubleToIntConverter.cs" />
     <Compile Include="Converters\DoubleToStringFromatConverter.cs" />
+    <Compile Include="Converters\StringToColorConverter.cs" />
+    <Compile Include="Converters\StringToSolidColorBrushConverter.cs" />
     <Compile Include="Converters\ToUpperConverter.cs" />
     <Compile Include="Extensions\MyEnumerables.cs" />
     <Compile Include="Extensions\WebViewExtension.cs" />
