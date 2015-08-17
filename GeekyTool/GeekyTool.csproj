@@ -127,11 +127,15 @@
     <Compile Include="Extensions\MyEnumerables.cs" />
     <Compile Include="Extensions\WebViewExtension.cs" />
     <Compile Include="Helpers\TitleBar.cs" />
+    <Compile Include="Models\IMenuItem.cs" />
+    <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\LocalSettingsService\ILocalSettingsService.cs" />
     <Compile Include="Services\LocalSettingsService\LocalSettingsService.cs" />
     <Compile Include="Services\NavigationService\INavigationService.cs" />
     <Compile Include="Services\NavigationService\NavigationService.cs" />
+    <Compile Include="Services\SplitterMenuService\ISplitterMenuService.cs" />
+    <Compile Include="Services\SplitterMenuService\SplitterMenuService.cs" />
     <Compile Include="ViewModels\PageBase.cs" />
     <Compile Include="ViewModels\SplitterViewModelBase.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
