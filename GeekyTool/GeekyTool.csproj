@@ -133,6 +133,7 @@
     <Compile Include="Services\NavigationService\INavigationService.cs" />
     <Compile Include="Services\NavigationService\NavigationService.cs" />
     <Compile Include="ViewModels\PageBase.cs" />
+    <Compile Include="ViewModels\SplitterViewModelBase.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Content Include="Properties\GeekyTool.rd.xml" />
   </ItemGroup>
