@@ -7,6 +7,7 @@ namespace GeekyTool
     public class PageBase : Page
     {
         private ViewModelBase vm;
+        private SplitterViewModelBase svm;
         private Frame splitViewFrame;
 
 
@@ -17,10 +18,10 @@ namespace GeekyTool
             {
                 splitViewFrame = value;
 
-                if (vm == null)
-                    vm = (ViewModelBase) this.DataContext;
+                if (svm == null)
+                    svm = (SplitterViewModelBase) this.DataContext;
 
-                vm.SetSplitFrame(splitViewFrame);
+                svm.SetSplitFrame(splitViewFrame);
             }
         }
 

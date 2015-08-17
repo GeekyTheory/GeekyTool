@@ -59,6 +59,9 @@ namespace GeekyTool.ViewModels
                 if (splitterMenuService == null)
                 {
                     splitterMenuService = new SplitterMenuService();
+
+                    if (menuItems == null)
+                        menuItems = new ObservableCollection<MenuItem>();
                     splitterMenuService.RegisterCollection(menuItems);
                 }
                 return splitterMenuService;
