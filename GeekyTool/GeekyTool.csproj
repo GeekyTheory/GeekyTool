@@ -121,6 +121,7 @@
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\DoubleToIntConverter.cs" />
     <Compile Include="Converters\DoubleToStringFromatConverter.cs" />
+    <Compile Include="Converters\RadioButtonCheckedConverter.cs" />
     <Compile Include="Converters\StringToColorConverter.cs" />
     <Compile Include="Converters\StringToSolidColorBrushConverter.cs" />
     <Compile Include="Converters\ToUpperConverter.cs" />

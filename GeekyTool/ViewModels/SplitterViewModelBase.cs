@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
+using Windows.UI.Xaml.Controls;
 using GeekyTool.Models;
 using GeekyTool.Services.SplitterMenuService;
-using Windows.UI.Xaml.Controls;
 
 namespace GeekyTool.ViewModels
 {
