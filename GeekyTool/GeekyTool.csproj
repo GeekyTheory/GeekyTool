@@ -130,6 +130,7 @@
     <Compile Include="Helpers\TitleBar.cs" />
     <Compile Include="Models\IMenuItem.cs" />
     <Compile Include="Models\MenuItem.cs" />
+    <Compile Include="Models\MenuItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\LocalSettingsService\ILocalSettingsService.cs" />
     <Compile Include="Services\LocalSettingsService\LocalSettingsService.cs" />
