@@ -70,7 +70,7 @@ namespace GeekyTool.ViewModels
             }
         }
 
-        public new void SetVisibilityOfNavigationBack()
+        public new virtual void SetVisibilityOfNavigationBack()
         {
             var currentView = SystemNavigationManager.GetForCurrentView();
 
@@ -91,7 +91,7 @@ namespace GeekyTool.ViewModels
             }
         }
 
-        public new void SystemNavigationManager_BackRequested(object sender, BackRequestedEventArgs e)
+        public new virtual void SystemNavigationManager_BackRequested(object sender, BackRequestedEventArgs e)
         {
             if (AppFrame != null && AppFrame.CanGoBack)
             {

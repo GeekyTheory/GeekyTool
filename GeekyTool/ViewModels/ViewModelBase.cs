@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Windows.Foundation.Metadata;
 using Windows.UI.Core;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -57,12 +58,12 @@ namespace GeekyTool.ViewModels
 
         public abstract Task OnNavigatedTo(NavigationEventArgs e);
 
-        public void GetCalculatedVariableSize(double width, int n)
+        public virtual void GetCalculatedVariableSize(double width, int n)
         {
             VariableSizedGrid_Width = width / n;
         }
 
-        public void SetVisibilityOfNavigationBack()
+        public virtual void SetVisibilityOfNavigationBack()
         {
             var currentView = SystemNavigationManager.GetForCurrentView();
 
@@ -79,13 +80,20 @@ namespace GeekyTool.ViewModels
             }
         }
 
-        public void SystemNavigationManager_BackRequested(object sender, BackRequestedEventArgs e)
+        public virtual void SystemNavigationManager_BackRequested(object sender, BackRequestedEventArgs e)
         {
             if (AppFrame != null && AppFrame.CanGoBack)
             {
                 AppFrame.GoBack();
                 e.Handled = true;
             }
+        }
+
+        public virtual void AppView_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            ViewWidth = e.NewSize.Width;
+
+            GetCalculatedVariableSize(ViewWidth, 4);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
