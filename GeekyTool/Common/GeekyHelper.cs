@@ -14,7 +14,7 @@ namespace GeekyTool
             return matchString;
         }
 
-        private List<string> ExtractAllImagesFromHtml(string content)
+        public static List<string> ExtractAllImagesFromHtml(string content)
         {
             List<string> images = new List<string>();
             
