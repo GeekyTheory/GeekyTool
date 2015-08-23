@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
 
@@ -6,6 +7,12 @@ namespace GeekyTool
 {
     public class GeekyHelper
     {
+        public static string ExtractFirstImageFromHtml(string content)
+        {
+            string matchString = Regex.Match(content, "<img.+?src=[\"'](.+?)[\"'].*?>", RegexOptions.IgnoreCase).Groups[1].Value;
+            return matchString;
+        }
+
         public static SolidColorBrush GetBrushColorFromHexa(string hexaColor)
         {
             return new SolidColorBrush(
