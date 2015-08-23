@@ -14,7 +14,7 @@ namespace GeekyTool.LoggingManager
     /// This is an advanced useage, where you want to intercept the logging messages and devert them somewhere 
     /// besides ETW. 
     /// </summary> 
-    sealed class StorageFileEventListener : EventListener
+    public class StorageFileEventListener : EventListener
     {
         /// <summary> 
         /// Storage file to be used to write logs 

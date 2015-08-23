@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GeekyTool.LoggingManager
 {
-    sealed class MetroEventSource : EventSource
+    public class MetroEventSource : EventSource
     {
         public static MetroEventSource Log = new MetroEventSource();
 
