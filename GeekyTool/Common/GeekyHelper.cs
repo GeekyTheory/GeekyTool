@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
 
@@ -30,6 +26,18 @@ namespace GeekyTool
                 Convert.ToByte(hexaColor.Substring(3, 2), 16),
                 Convert.ToByte(hexaColor.Substring(5, 2), 16)
                 );
+        }
+
+        public static bool ValidFeedUri(string feedUri)
+        {
+            if (string.IsNullOrEmpty(feedUri))
+                return false;
+
+            Uri uri;
+            if (!Uri.TryCreate(feedUri.Trim(), UriKind.Absolute, out uri))
+                return false;
+            else
+                return true;
         }
     }
 }

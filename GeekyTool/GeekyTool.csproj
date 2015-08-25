@@ -116,11 +116,13 @@
     <Compile Include="Commands\DelegateCommand.cs" />
     <Compile Include="Commands\DelegateCommandAsync.cs" />
     <Compile Include="Common\GeekyHelper.cs" />
+    <Compile Include="Controls\VariableGridView.cs" />
     <Compile Include="Converters\BooleanNegationConverter.cs" />
     <Compile Include="Converters\BooleanToInverseVisibilityConverter.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\DoubleToIntConverter.cs" />
     <Compile Include="Converters\DoubleToStringFromatConverter.cs" />
+    <Compile Include="Converters\RadioButtonCheckedConverter.cs" />
     <Compile Include="Converters\StringToColorConverter.cs" />
     <Compile Include="Converters\StringToSolidColorBrushConverter.cs" />
     <Compile Include="Converters\ToUpperConverter.cs" />
@@ -129,7 +131,9 @@
     <Compile Include="Helpers\TitleBar.cs" />
     <Compile Include="Models\IMenuItem.cs" />
     <Compile Include="Models\MenuItem.cs" />
+    <Compile Include="Models\MenuItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IResizable.cs" />
     <Compile Include="Services\LocalSettingsService\ILocalSettingsService.cs" />
     <Compile Include="Services\LocalSettingsService\LocalSettingsService.cs" />
     <Compile Include="Services\NavigationService\INavigationService.cs" />
@@ -147,6 +151,7 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
