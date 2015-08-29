@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml;
+﻿using System;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace GeekyTool.Extensions
@@ -22,6 +23,25 @@ namespace GeekyTool.Extensions
         {
             WebView wv = d as WebView;
             wv?.NavigateToString((string)e.NewValue);
+        }
+
+        public static Uri GetNavigate(DependencyObject obj)
+        {
+            return (Uri)obj.GetValue(NavigateProperty);
+        }
+
+        public static void SetNavigate(DependencyObject obj, Uri value)
+        {
+            obj.SetValue(NavigateProperty, value);
+        }
+
+        public static readonly DependencyProperty NavigateProperty = DependencyProperty.Register(
+            "Navigate", typeof (Uri), typeof (WebViewExtension), new PropertyMetadata(default(Uri), new PropertyChangedCallback(OnNavigateChanged)));
+
+        private static void OnNavigateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            WebView wv = d as WebView;
+            wv?.Navigate((Uri)e.NewValue);
         }
     }
 }
