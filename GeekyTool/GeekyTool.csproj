@@ -113,8 +113,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Behaviors\SplitViewCloserBehavior.cs" />
-    <Compile Include="Behaviors\SplitViewOpenerBehavior.cs" />
+    <Compile Include="Behaviors\SplitViewSwipeBehavior.cs" />
     <Compile Include="Commands\DelegateCommand.cs" />
     <Compile Include="Commands\DelegateCommandAsync.cs" />
     <Compile Include="Common\GeekyHelper.cs" />
