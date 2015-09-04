@@ -7,6 +7,7 @@ namespace GeekyTool.Services.SplitterMenuService
     public interface ISplitterMenuService
     {
         void RegisterCollection(ObservableCollection<MenuItem> menuItemsCollection);
+        IEnumerable<MenuItem> GetItems();
         void AddItems(IEnumerable<MenuItem> menuItemsCollection);
         void AddItem(MenuItem menuItem);
         void RemoveItems(IEnumerable<MenuItem> menuItemsCollection);

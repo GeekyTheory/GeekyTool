@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using GeekyTool.Models;
 
 namespace GeekyTool.Services.SplitterMenuService
@@ -14,6 +15,11 @@ namespace GeekyTool.Services.SplitterMenuService
                 throw new ArgumentException("Menu item collection must not be null.");
 
             MenuItems.instance.Items = menuItemsCollection;
+        }
+
+        public IEnumerable<MenuItem> GetItems()
+        {
+            return MenuItems.instance.Items.AsEnumerable();
         }
 
         public void AddItems(IEnumerable<MenuItem> menuItemsCollection)
