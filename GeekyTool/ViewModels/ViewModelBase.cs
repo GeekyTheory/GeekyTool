@@ -1,6 +1,9 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using Windows.Foundation.Metadata;
+using Windows.UI.Core;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -54,6 +57,44 @@ namespace GeekyTool.ViewModels
         public abstract Task OnNavigatedFrom(NavigationEventArgs e);
 
         public abstract Task OnNavigatedTo(NavigationEventArgs e);
+
+        public virtual void GetCalculatedVariableSize(double width, int n)
+        {
+            VariableSizedGrid_Width = width / n;
+        }
+
+        public virtual void SetVisibilityOfNavigationBack()
+        {
+            var currentView = SystemNavigationManager.GetForCurrentView();
+
+            if (!ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons"))
+            {
+                if (AppFrame != null && AppFrame.CanGoBack)
+                {
+                    currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+                }
+                else
+                {
+                    currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+                }
+            }
+        }
+
+        public virtual void SystemNavigationManager_BackRequested(object sender, BackRequestedEventArgs e)
+        {
+            if (AppFrame != null && AppFrame.CanGoBack)
+            {
+                AppFrame.GoBack();
+                e.Handled = true;
+            }
+        }
+
+        public virtual void AppView_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            ViewWidth = e.NewSize.Width;
+
+            GetCalculatedVariableSize(ViewWidth, 4);
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         

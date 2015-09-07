@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
+using GeekyTool.Models;
 
-namespace GeekyTool.Models
+namespace GeekyTool
 {
     public class MenuItems
     {
