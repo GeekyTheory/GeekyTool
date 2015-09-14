@@ -116,6 +116,7 @@
     <Compile Include="Behaviors\SplitViewSwipeBehavior.cs" />
     <Compile Include="Commands\DelegateCommand.cs" />
     <Compile Include="Commands\DelegateCommandAsync.cs" />
+    <Compile Include="Common\EncodeHelper.cs" />
     <Compile Include="Common\GeekyHelper.cs" />
     <Compile Include="Controls\VariableGridView.cs" />
     <Compile Include="Converters\BooleanNegationConverter.cs" />
