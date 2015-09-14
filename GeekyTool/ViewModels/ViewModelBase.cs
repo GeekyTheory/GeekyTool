@@ -66,17 +66,13 @@ namespace GeekyTool.ViewModels
         public virtual void SetVisibilityOfNavigationBack()
         {
             var currentView = SystemNavigationManager.GetForCurrentView();
-
-            if (!ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons"))
+            if (AppFrame != null && AppFrame.CanGoBack)
             {
-                if (AppFrame != null && AppFrame.CanGoBack)
-                {
-                    currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
-                }
-                else
-                {
-                    currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
-                }
+                currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            }
+            else
+            {
+                currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
             }
         }
 
