@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Windows.Graphics.Imaging;
 using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace GeekyTool
 {
@@ -104,5 +107,39 @@ namespace GeekyTool
                 return new Color();
             }
         }
+
+        public static async Task<byte[]> GetStreamToBytesAsync(IRandomAccessStream fileStream)
+        {
+            using (DataReader reader = new DataReader(fileStream.GetInputStreamAt(0)))
+            {
+                await reader.LoadAsync((uint)fileStream.Size);
+                byte[] pixeByte = new byte[fileStream.Size];
+                reader.ReadBytes(pixeByte);
+                return pixeByte;
+            }
+        }
+
+        public static async Task<byte[]> ImageToByteArrayAsync(StorageFile file)
+        {
+            using (IRandomAccessStream stream = await file.OpenReadAsync())
+            {
+                return await GetStreamToBytesAsync(stream);
+            }
+        }
+
+        public static async Task<BitmapImage> ConvertByteArrayToBitmapImage(byte[] byteValue)
+        {
+            var img = new BitmapImage();
+
+            var ras = new InMemoryRandomAccessStream();
+            await ras.WriteAsync(byteValue.AsBuffer());
+            await ras.FlushAsync();
+            ras.Seek(0);
+            img.SetSource(ras);
+
+            return img;
+        }
+
+        
     }
 }
