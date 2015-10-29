@@ -12,9 +12,15 @@ namespace GeekyTool.ViewModels
     public abstract class ViewModelBase : INotifyPropertyChanged
     {
         private Frame appFrame;
+        private readonly CoreDispatcher dispatcher;
         private bool isBusy;
         private double variableSizedGrid_Width;
         private double viewWidth;
+
+        protected ViewModelBase()
+        {
+            dispatcher = CoreWindow.GetForCurrentThread().Dispatcher;
+        }
 
         public Frame AppFrame => appFrame;
 
@@ -66,17 +72,13 @@ namespace GeekyTool.ViewModels
         public virtual void SetVisibilityOfNavigationBack()
         {
             var currentView = SystemNavigationManager.GetForCurrentView();
-
-            if (!ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons"))
+            if (AppFrame != null && AppFrame.CanGoBack)
             {
-                if (AppFrame != null && AppFrame.CanGoBack)
-                {
-                    currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
-                }
-                else
-                {
-                    currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
-                }
+                currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            }
+            else
+            {
+                currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
             }
         }
 
@@ -100,7 +102,15 @@ namespace GeekyTool.ViewModels
         
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            if (dispatcher == null || dispatcher.HasThreadAccess)
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            else
+            {
+                var doNotAwait = dispatcher.RunAsync(CoreDispatcherPriority.Normal, (() =>
+                {
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                }));
+            }
         }
 
         internal void SetAppFrame(Frame viewFrame)
