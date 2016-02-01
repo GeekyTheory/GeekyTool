@@ -132,6 +132,7 @@
     <Compile Include="Extensions\MyEnumerables.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\WebViewExtension.cs" />
+    <Compile Include="Extensions\XAMLExtensions.cs" />
     <Compile Include="Helpers\TitleBar.cs" />
     <Compile Include="LoggingManager\MetroEventSource.cs" />
     <Compile Include="LoggingManager\StorageFileEventListener.cs" />
