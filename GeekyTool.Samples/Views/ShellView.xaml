@@ -23,7 +23,7 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="3*" />
                     </Grid.RowDefinitions>
-                    <Grid>
+                    <Grid Grid.Row="0">
                         <Image x:Name="profileImage" Margin="20" Source="ms-appx:///Assets/soydachiProfile.png"/>
                     </Grid>
                     <ListView Grid.Row="1" x:Name="MenuItemList"
@@ -53,6 +53,7 @@
                             </Style>
                         </ListView.ItemContainerStyle>
                     </ListView>
+                    <Border Grid.Row="0" Grid.RowSpan="3" Background="#FF583D89" Visibility="{Binding IsPaneOpen, Converter={StaticResource BooleanToInverseVisibilityConverter}}" d:IsHidden="True"/>
                 </Grid>
             </SplitView.Pane>
             <SplitView.Content>

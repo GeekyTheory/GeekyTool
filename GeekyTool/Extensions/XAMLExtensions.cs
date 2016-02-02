@@ -8,6 +8,8 @@ using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
+using Microsoft.Graphics.Canvas;
+using Microsoft.Graphics.Canvas.Effects;
 
 namespace GeekyTool.Extensions
 {
@@ -44,6 +46,43 @@ namespace GeekyTool.Extensions
             stream.Seek(0);
 
             return stream;
+        }
+
+        /// <summary>
+        /// Applys a blur to a UI element
+        /// </summary>
+        /// <param name="sourceElement">UIElement to blur, generally an Image control, but can be anything</param>
+        /// <param name="blurAmount">Level of blur to apply</param>
+        /// <returns>Blurred UIElement as BitmapImage</returns>
+        public static async Task<BitmapImage> BlurElementAsync(this UIElement sourceElement, float blurAmount = 2.0f)
+        {
+            var stream = await RenderToRandomAccessStream(sourceElement);
+
+            var canvasDecive = new CanvasDevice();
+            var bitmap = await CanvasBitmap.LoadAsync(canvasDecive, stream);
+
+            var renderer = new CanvasRenderTarget(canvasDecive,
+                bitmap.SizeInPixels.Width,
+                bitmap.SizeInPixels.Height,
+                bitmap.Dpi);
+
+            using (var ds = renderer.CreateDrawingSession())
+            {
+                var blur = new GaussianBlurEffect
+                {
+                    BlurAmount = blurAmount,
+                    Source = bitmap
+                };
+                ds.DrawImage(blur);
+            }
+
+            stream.Seek(0);
+            await renderer.SaveAsync(stream, CanvasBitmapFileFormat.Png);
+
+            var image = new BitmapImage();
+            await image.SetSourceAsync(stream);
+
+            return image;
         }
 
         /// <summary>
