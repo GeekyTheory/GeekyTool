@@ -4,5 +4,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:GeekyTool.Samples"
     RequestedTheme="Light">
+    
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///GeekyTool/Styles/Colors.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Themes/ListViewTheme.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            
+            <local:ViewModelLocator x:Key="Locator"/>
+        </ResourceDictionary>
+    </Application.Resources>
 
 </Application>
