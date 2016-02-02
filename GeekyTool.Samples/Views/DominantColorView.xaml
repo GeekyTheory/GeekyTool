@@ -1,0 +1,41 @@
+﻿<geekyTool:PageBase
+    x:Class="GeekyTool.Samples.Views.DominantColorView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:geekyTool="using:GeekyTool"
+    DataContext="{Binding DominantColorViewModel,Source={StaticResource Locator}}"
+    mc:Ignorable="d">
+    <geekyTool:PageBase.BottomAppBar>
+        <CommandBar>
+            <CommandBar.Content>
+                <Grid/>
+            </CommandBar.Content>
+            <AppBarButton Command="{Binding ChooseNewPhotoCommand}" Icon="BrowsePhotos" Label="Choose image"
+                          Background="{Binding MyInvertColor}"/>
+        </CommandBar>
+    </geekyTool:PageBase.BottomAppBar>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="40">
+            <Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                Source="{Binding Img}" />
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1" Margin="40" Background="{Binding MyColor}">
+            <TextBlock Text="Dominant Color" Foreground="{Binding MyInvertColor}" Style="{StaticResource HeaderTextBlockStyle}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="1" Margin="40" Background="{Binding MyInvertColor}">
+            <TextBlock Text="Inverted Color" Foreground="{Binding MyColor}" Style="{StaticResource HeaderTextBlockStyle}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+    </Grid>
+</geekyTool:PageBase>
+

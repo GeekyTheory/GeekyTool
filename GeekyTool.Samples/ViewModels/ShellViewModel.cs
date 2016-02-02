@@ -35,7 +35,7 @@ namespace GeekyTool.Samples.ViewModels
                     Icon = "ms-appx:///Assets/Icons/Dashboard.png",
                     Title = "Dominant Color Sample",
                     Brush = new SolidColorBrush(Colors.ForestGreen).Color.ToString(),
-                    View = typeof (MainView)
+                    View = typeof (DominantColorView)
                 },
                 new MenuItem
                 {
