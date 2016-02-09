@@ -28,6 +28,8 @@ namespace GeekyTool.Samples.ViewModels
 
         public override Task OnNavigatedTo(NavigationEventArgs e)
         {
+            IsPaneOpen = true;
+
             var items = new List<MenuItem>
             {
                 new MenuItem

@@ -7,6 +7,13 @@
     xmlns:geekyTool="using:GeekyTool"
     DataContext="{Binding DominantColorViewModel,Source={StaticResource Locator}}"
     mc:Ignorable="d">
+    
+    <geekyTool:PageBase.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="WhiteSmoke"></Setter>
+        </Style>
+    </geekyTool:PageBase.Resources>
+    
     <geekyTool:PageBase.BottomAppBar>
         <CommandBar>
             <CommandBar.Content>
@@ -17,23 +24,36 @@
         </CommandBar>
     </geekyTool:PageBase.BottomAppBar>
 
-    <Grid>
+    <Grid Background="{StaticResource Gray900}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Margin="40">
+        <Grid MinHeight="75" ColumnSpan="2" Margin="20,20,20,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock VerticalAlignment="Center" Text="Dominant Color" FontWeight="Bold" Foreground="WhiteSmoke" Style="{StaticResource TitleTextBlockStyle}"/>
+            <RichTextBlock Margin="0,4,0,0" Grid.Row="1" Foreground="WhiteSmoke" Style="{StaticResource BodyRichTextBlockStyle}">
+                <Paragraph>
+                    In this example we can se how to work with dominant color and his inverted color. All this methods are avaliable in Geeky Tool.
+                </Paragraph>
+            </RichTextBlock>
+        </Grid>
+        <Grid Grid.Row="1" Margin="40">
             <Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                 Source="{Binding Img}" />
         </Grid>
-        <Grid Grid.Row="0" Grid.Column="1" Margin="40" Background="{Binding MyColor}">
+        <Grid Grid.Row="1" Grid.Column="1" Margin="40" Background="{Binding MyColor}">
             <TextBlock Text="Dominant Color" Foreground="{Binding MyInvertColor}" Style="{StaticResource HeaderTextBlockStyle}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Grid>
-        <Grid Grid.Column="1" Grid.Row="1" Margin="40" Background="{Binding MyInvertColor}">
+        <Grid Grid.Column="1" Grid.Row="2" Margin="40" Background="{Binding MyInvertColor}">
             <TextBlock Text="Inverted Color" Foreground="{Binding MyColor}" Style="{StaticResource HeaderTextBlockStyle}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Grid>
     </Grid>

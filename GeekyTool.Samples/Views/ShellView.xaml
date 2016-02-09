@@ -12,7 +12,7 @@
         <SplitView x:Name="Splitter"
                    CompactPaneLength="48"
                    OpenPaneLength="280"
-                   DisplayMode="CompactOverlay"
+                   DisplayMode="CompactInline"
                    Background="White"
                    PaneBackground="{Binding MenuItem.Brush}"
                    IsPaneOpen="{Binding IsPaneOpen}">
