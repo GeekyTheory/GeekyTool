@@ -24,7 +24,59 @@
                         <RowDefinition Height="3*" />
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
-                        <Image x:Name="profileImage" Margin="20" Source="ms-appx:///Assets/soydachiProfile.png"/>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Image Margin="20" Source="ms-appx:///Assets/soydachiProfile.png"/>
+                        <TextBlock Grid.Row="1" Text="Dachi Gogotchuri" HorizontalAlignment="Center" Foreground="WhiteSmoke" FontWeight="Bold" Style="{StaticResource TitleTextBlockStyle}" ></TextBlock>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel x:Name="TweetsCounter" Grid.Column="0" Margin="0,8"
+                                        RenderTransformOrigin="0.5,0.5">
+                                <StackPanel.RenderTransform>
+                                    <CompositeTransform />
+                                </StackPanel.RenderTransform>
+
+                                <HyperlinkButton HorizontalAlignment="Center">
+                                    <HyperlinkButton.ContentTemplate>
+                                        <DataTemplate>
+                                            <Border Padding="12,4" CornerRadius="5" BorderBrush="#FF3C3C3C" Background="#FF3C3C3C" BorderThickness="2" >
+                                                <TextBlock Text="Hack my Github" Foreground="WhiteSmoke" TextWrapping="Wrap" TextAlignment="Center"></TextBlock>
+                                            </Border>
+                                        </DataTemplate>
+                                    </HyperlinkButton.ContentTemplate>
+                                </HyperlinkButton>
+                            </StackPanel>
+                            <StackPanel x:Name="FollowingCounter" Grid.Column="1" Margin="0,8"
+                                        RenderTransformOrigin="0.5,0.5">
+                                <StackPanel.RenderTransform>
+                                    <CompositeTransform />
+                                </StackPanel.RenderTransform>
+                                <TextBlock Text="Following" Foreground="DarkGray"
+                                           HorizontalAlignment="Center" />
+                                <TextBlock Text="132" Foreground="LightGray"
+                                           HorizontalAlignment="Center" FontSize="32"
+                                           FontFamily="Segoe UI Semilight" />
+                            </StackPanel>
+                            <StackPanel x:Name="FollowersCounter" Grid.Column="2" Margin="0,8"
+                                        RenderTransformOrigin="0.5,0.5">
+                                <StackPanel.RenderTransform>
+                                    <CompositeTransform />
+                                </StackPanel.RenderTransform>
+                                <TextBlock Text="Followers" Foreground="DarkGray"
+                                           HorizontalAlignment="Center" />
+                                <TextBlock Text="74" Foreground="LightGray"
+                                           HorizontalAlignment="Center" FontSize="32"
+                                           FontFamily="Segoe UI Semilight" />
+                            </StackPanel>
+                        </Grid>
                     </Grid>
                     <ListView Grid.Row="1" x:Name="MenuItemList"
                         ItemsSource="{Binding MenuItems}"
