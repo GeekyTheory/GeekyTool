@@ -122,6 +122,15 @@
     <Compile Include="..\GeekyTool.Core\LogManager\MetroEventSource.cs">
       <Link>LogManager\MetroEventSource.cs</Link>
     </Compile>
+    <Compile Include="..\GeekyTool.Core\ViewModels\BindableBase.cs">
+      <Link>ViewModels\BindableBase.cs</Link>
+    </Compile>
+    <Compile Include="..\GeekyTool.Core\ViewModels\INavigable.cs">
+      <Link>ViewModels\INavigable.cs</Link>
+    </Compile>
+    <Compile Include="..\GeekyTool.Core\ViewModels\ViewModelBase.cs">
+      <Link>ViewModels\ViewModelBase.cs</Link>
+    </Compile>
     <Compile Include="Common\ColorHelper.cs" />
     <Compile Include="Common\EncodeHelper.cs" />
     <Compile Include="Common\HtmlHelper.cs" />
@@ -137,8 +146,9 @@
     <Compile Include="Converters\ToUpperConverter.cs" />
     <Compile Include="Extensions\XAMLExtensions.cs" />
     <Compile Include="LogManager\StorageFileEventListener.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\GeekyTool.Core__UWP_.rd.xml" />
+    <EmbeddedResource Include="Properties\GeekyTool.Core.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Resources\AndroidColors.xaml">
@@ -147,9 +157,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

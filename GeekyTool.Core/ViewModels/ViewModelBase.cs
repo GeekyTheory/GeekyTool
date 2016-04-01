@@ -1,11 +1,15 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
+﻿#if WINDOWS_UWP
 using System.Threading.Tasks;
-using GeekyTool.Core.Annotations;
+using Windows.UI.Xaml.Navigation;
+#endif
 
 namespace GeekyTool.Core.ViewModels
 {
-    public abstract class ViewModelBase : INotifyPropertyChanged
+#if WINDOWS_UWP
+    public abstract class ViewModelBase : BindableBase, INavigable
+#else
+    public abstract class ViewModelBase : BindableBase
+#endif
     {
         private bool isBusy;
 
@@ -19,16 +23,16 @@ namespace GeekyTool.Core.ViewModels
             }
         }
 
-        public abstract Task OnNavigatedFrom(NavigationEventArgs e);
-
-        public abstract Task OnNavigatedTo(NavigationEventArgs e);
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+#if WINDOWS_UWP
+        public Task OnNavigatedFrom(object e)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            return Task.CompletedTask;
         }
+
+        public Task OnNavigatedTo(object e)
+        {
+            return Task.CompletedTask;
+        }
+#endif
     }
 }
