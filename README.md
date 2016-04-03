@@ -1,13 +1,4 @@
-# GeekyTool   #MadeInSpain
-A Windows Platform Toolkit to simplify #dev life
-
-- This version is beta and only supports Universal Windows Platform (UWP)
-
-### How to use it
-Simply fork this project and add to your solution or add his dynamic libarary as Reference
-
-* Now you can download it as a Nuget Package! Try it now!
-`PM> Install-Package GeekyTheory.Toolkit`
+##This project is moved to [https://github.com/dachibox/GeekyTool](https://github.com/dachibox/GeekyTool)
 
 ###License
 
